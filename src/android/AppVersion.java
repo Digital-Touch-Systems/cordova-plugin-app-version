@@ -17,7 +17,7 @@ public class AppVersion extends CordovaPlugin {
     try {
       if (action.equals("getAppName")) {
         PackageManager packageManager = this.cordova.getActivity().getPackageManager();
-        ApplicationInfo app = packageManager.getApplicationInfo(this.cordova.getActivity().getPackageName(), 0);
+        ApplicationInfo app = packageManager.getApplicationInfo(this.cordova.getActivity().getPackageName(), 128);
         callbackContext.success((String)packageManager.getApplicationLabel(app));
         return true;
       }
@@ -27,12 +27,12 @@ public class AppVersion extends CordovaPlugin {
       }
       if (action.equals("getVersionNumber")) {
         PackageManager packageManager = this.cordova.getActivity().getPackageManager();
-        callbackContext.success(packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0).versionName);
+        callbackContext.success(packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 128).versionName);
       return true;
       }
       if (action.equals("getVersionCode")) {
         PackageManager packageManager = this.cordova.getActivity().getPackageManager();
-        callbackContext.success(packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0).versionCode);
+        callbackContext.success(packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 128).versionCode);
       return true;
       }
       return false;
